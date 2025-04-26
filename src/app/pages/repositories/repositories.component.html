@@ -10,7 +10,7 @@
   <h1>Repositorios de {{ repositories().username }}</h1>
   }
 
-  <!-- Añadimos controles para los parámetros de consulta -->
+  <!-- Parámetros de consulta -->
   @if (!isLoading() && repositories().repositories.length) {
   <div class="query-controls">
     <div class="filters-row">
@@ -58,7 +58,7 @@
   } @if (!isLoading() && repositories().repositories.length) {
   <div class="repositories-container">
     @for (repo of repositories().repositories; track $index) {
-    <mat-card class="repository-card">
+    <mat-card class="repository-card" scrollFadeIn>
       <mat-card-header>
         <mat-card-title>
           <a [href]="repo.url" target="_blank" rel="noopener noreferrer">{{
@@ -126,9 +126,7 @@
     }
   </div>
 
-  <!-- Añadimos el paginador personalizado -->
   @if (!isLoading() && repositories().repositories.length) {
-
   <app-paginator
     [currentPage]="queryParams().page"
     [hasNextPage]="hasNextPage()"
@@ -141,4 +139,17 @@
     <p>No se encontraron repositorios para este usuario.</p>
   </div>
   }
+
+  <div class="footer">
+    <p>
+      Desarrollado por
+      <a
+        href="https://github.com/MrNizzy"
+        target="_blank"
+        rel="noopener noreferrer"
+        >MrNizzy</a
+      >
+    </p>
+    <p>Con amor y café ☕</p>
+  </div>
 </div>

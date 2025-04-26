@@ -27,6 +27,7 @@ import {
 import { FormsModule } from '@angular/forms';
 import { PaginatorComponent } from '../../components/paginator/paginator.component';
 import { LanguageIconComponent } from '../../components/language-icon/language-icon.component';
+import { ScrollFadeInDirective } from '../../directives/scroll-fade-in.directive';
 
 @Component({
   selector: 'app-repositories',
@@ -46,6 +47,7 @@ import { LanguageIconComponent } from '../../components/language-icon/language-i
     DatePipe,
     PaginatorComponent,
     LanguageIconComponent,
+    ScrollFadeInDirective,
   ],
   templateUrl: './repositories.component.html',
   styleUrl: './repositories.component.scss',

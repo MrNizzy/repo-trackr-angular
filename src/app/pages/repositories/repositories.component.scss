@@ -269,6 +269,34 @@
   }
 }
 
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: var(--mat-sys-surface-container);
+  border-radius: 0.5rem;
+
+  p {
+    font-size: 1rem;
+    color: var(--mat-sys-secondary);
+    margin-left: 0.5rem;
+    text-align: center;
+
+    a {
+      color: var(--mat-sys-primary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+
+      &:hover {
+        color: var(--mat-sys-secondary);
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
 @media (max-width: 768px) {
   .repositories-container {
     grid-template-columns: 1fr;
