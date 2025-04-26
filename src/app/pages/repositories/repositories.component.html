@@ -6,11 +6,51 @@
     </button>
   </div>
 
-  <h1 *ngIf="repositories().username">
-    Repositorios de {{ repositories().username }}
-  </h1>
+  @if (repositories().username) {
+  <h1>Repositorios de {{ repositories().username }}</h1>
+  }
 
-  @if (isLoading()) {
+  <!-- Añadimos controles para los parámetros de consulta -->
+  @if (!isLoading() && repositories().repositories.length) {
+  <div class="query-controls">
+    <div class="filters-row">
+      <mat-form-field appearance="outline">
+        <mat-label>Ordenar por</mat-label>
+        <mat-select
+          [value]="queryParams().sort"
+          (selectionChange)="changeSort($event.value)"
+        >
+          @for (option of sortOptions; track option.value) {
+          <mat-option [value]="option.value">{{ option.viewValue }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Orden</mat-label>
+        <mat-select
+          [value]="queryParams().direction"
+          (selectionChange)="changeOrder($event.value)"
+        >
+          @for (option of orderOptions; track option.value) {
+          <mat-option [value]="option.value">{{ option.viewValue }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Resultados por página</mat-label>
+        <mat-select
+          [value]="queryParams().per_page"
+          (selectionChange)="changePerPage($event.value)"
+        >
+          @for (option of perPageOptions; track $index) {
+          <mat-option [value]="option">{{ option }}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </div>
+  </div>
+  } @if (isLoading()) {
   <div class="loading-spinner">
     <mat-spinner diameter="50"></mat-spinner>
     <p>Cargando repositorios...</p>
@@ -46,7 +86,10 @@
           </div>
           @if (repo.language) {
           <div class="stat" matTooltip="Lenguaje principal">
-            <mat-icon>code</mat-icon>
+            <app-language-icon
+              [language]="repo.language"
+              [size]="{ width: 20, height: 20 }"
+            ></app-language-icon>
             <span>{{ repo.language }}</span>
           </div>
           }
@@ -82,7 +125,17 @@
     </mat-card>
     }
   </div>
-  } @if (!isLoading() && !repositories().repositories.length) {
+
+  <!-- Añadimos el paginador personalizado -->
+  @if (!isLoading() && repositories().repositories.length) {
+
+  <app-paginator
+    [currentPage]="queryParams().page"
+    [hasNextPage]="hasNextPage()"
+    (pageChange)="handlePageChange($event)"
+  >
+  </app-paginator>
+  } } @if (!isLoading() && !repositories().repositories.length) {
   <div class="no-repos">
     <mat-icon>sentiment_dissatisfied</mat-icon>
     <p>No se encontraron repositorios para este usuario.</p>

@@ -1,0 +1,71 @@
+.paginator-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: var(--mat-sys-surface-container);
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.paginator-info {
+  color: var(--mat-sys-secondary);
+  font-size: 0.9rem;
+  margin-right: 1rem;
+}
+
+.paginator-controls {
+  display: flex;
+  align-items: center;
+
+  .page-numbers {
+    display: flex;
+    align-items: center;
+
+    button {
+      min-width: 36px;
+      height: 36px;
+      padding: 0;
+      margin: 0 2px;
+      line-height: 36px;
+      border-radius: 50%;
+
+      &.active {
+        background-color: var(--mat-sys-primary);
+        color: var(--mat-sys-on-primary);
+      }
+    }
+
+    .ellipsis {
+      margin: 0 8px;
+      color: var(--mat-sys-secondary);
+    }
+  }
+}
+
+// Estilos responsivos
+@media (max-width: 600px) {
+  .paginator-container {
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .paginator-info {
+      margin-right: 0;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .paginator-controls {
+    width: 100%;
+    justify-content: center;
+
+    .page-numbers {
+      button {
+        min-width: 32px;
+        height: 32px;
+        line-height: 32px;
+      }
+    }
+  }
+}

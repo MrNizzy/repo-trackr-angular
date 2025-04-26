@@ -1,0 +1,44 @@
+<div class="paginator-container">
+  <div class="paginator-info">
+    <span>Página {{ currentPage() }}</span>
+  </div>
+
+  <div class="paginator-controls">
+    <!-- Botón primera página -->
+    <button
+      mat-icon-button
+      (click)="goToFirstPage()"
+      [disabled]="currentPage() === 1"
+      aria-label="Primera página"
+    >
+      <mat-icon>first_page</mat-icon>
+    </button>
+
+    <!-- Botón página anterior -->
+    <button
+      mat-icon-button
+      (click)="goToPreviousPage()"
+      [disabled]="currentPage() === 1"
+      aria-label="Página anterior"
+    >
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+
+    <!-- Número de página actual -->
+    <div class="page-numbers">
+      <button mat-button class="active">
+        {{ currentPage() }}
+      </button>
+    </div>
+
+    <!-- Botón página siguiente -->
+    <button
+      mat-icon-button
+      (click)="goToNextPage()"
+      [disabled]="!hasNextPage()"
+      aria-label="Página siguiente"
+    >
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+  </div>
+</div>

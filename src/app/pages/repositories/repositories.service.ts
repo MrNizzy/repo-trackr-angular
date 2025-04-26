@@ -4,6 +4,13 @@ import { Observable } from 'rxjs';
 import { environment } from '../../../environments/environment.development';
 import { RepositoriesResponse } from './repositories.model';
 
+interface QueryParams {
+  sort?: string;
+  direction?: string;
+  page?: number;
+  per_page?: number;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -16,9 +23,16 @@ export class RepositoriesService {
    * de un usuario para el cual deseas recuperar repositorios.
    * @returns Se devuelve un Observable de tipo RepositoriesResponse.
    */
-  public getRepositories(username: string): Observable<RepositoriesResponse> {
+  public getRepositories(
+    username: string,
+    queryParams?: QueryParams
+  ): Observable<RepositoriesResponse> {
     return this._http.get<RepositoriesResponse>(
-      environment.apiUrl + '/user/' + username
+      environment.apiUrl +
+        '/user/' +
+        username +
+        '?' +
+        new URLSearchParams(queryParams as string)
     );
   }
 }
