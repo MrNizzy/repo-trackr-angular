@@ -1,1 +1,13 @@
 <router-outlet />
+
+@if (showScrollButton()) {
+<button
+  class="scroll-to-top-btn"
+  mat-fab
+  color="secondary"
+  (click)="scrollToTop()"
+  matTooltip="Volver arriba"
+>
+  <mat-icon>arrow_upward</mat-icon>
+</button>
+}
