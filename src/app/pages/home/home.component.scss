@@ -8,14 +8,9 @@
 }
 
 .logo {
-  width: 250px;
-  height: 250px;
-  background: url("../../../../public/light.png") no-repeat center center /
-    contain;
-  @media (prefers-color-scheme: dark) {
-    background: url("../../../../public/dark.png") no-repeat center center /
-      contain;
-  }
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
 .search-container {
@@ -38,7 +33,6 @@
 }
 
 .logo-container {
-  margin-bottom: 1.5rem;
   transform: translateY(-10px);
   transition: transform 0.3s ease;
 
