@@ -43,7 +43,13 @@ export class HomeComponent {
   }
 
   public onSearch() {
-    if (this.form.valid) {
+    if (this.form.valid && document.startViewTransition) {
+      // Usamos startViewTransition para animar la navegación
+      document.startViewTransition(() => {
+        this._router.navigate(['repositories', this.searchTerm]);
+      });
+    } else if (this.form.valid) {
+      // Fallback para navegadores que no soportan view transitions
       this._router.navigate(['repositories', this.searchTerm]);
     } else {
       this.form.markAllAsTouched();

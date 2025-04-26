@@ -119,10 +119,18 @@ export class RepositoriesComponent implements OnInit {
 
   /**
    * La función `goToHome` navega a la ruta raíz ('/') utilizando el enrutador
-   * de Angular.
+   * de Angular, con una animación de transición de vista si está disponible.
    */
   public goToHome(): void {
-    this._router.navigate(['/']);
+    if (document.startViewTransition) {
+      // Usamos startViewTransition para animar la navegación de regreso
+      document.startViewTransition(() => {
+        this._router.navigate(['/']);
+      });
+    } else {
+      // Fallback para navegadores que no soportan view transitions
+      this._router.navigate(['/']);
+    }
   }
 
   /**
