@@ -1,1 +1,45 @@
-<p>home works!</p>
+<main class="container">
+  <div class="search-container">
+    <div class="logo-container">
+      <div class="logo"></div>
+    </div>
+    <h1 class="title">Buscador de Repositorios GitHub</h1>
+    <p class="subtitle">
+      Encuentra fácilmente los repositorios de cualquier usuario
+    </p>
+
+    <form [formGroup]="form" class="search-form" (ngSubmit)="onSearch()">
+      <mat-form-field appearance="outline" class="search-field">
+        <mat-label>Usuario</mat-label>
+        <input
+          matInput
+          placeholder="Ej. MrNizzy"
+          formControlName="searchTerm"
+        />
+        <mat-icon matPrefix>search</mat-icon>
+        @if (searchTerm) {
+        <button
+          mat-icon-button
+          matSuffix
+          (click)="clearSearchTerm()"
+          type="button"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+        }
+        <mat-error>El nombre de usuario es requerido</mat-error>
+      </mat-form-field>
+
+      <button
+        mat-fab
+        extended
+        color="primary"
+        class="search-button"
+        [disabled]="form.invalid"
+      >
+        <span>Buscar</span>
+        <mat-icon>arrow_forward</mat-icon>
+      </button>
+    </form>
+  </div>
+</main>
