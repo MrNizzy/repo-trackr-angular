@@ -241,6 +241,27 @@ import {
       [height]="size().height"
       alt="Racket"
     />
+    } @case ('Svelte') {
+    <img
+      src="/languages/svelte.svg"
+      [width]="size().width"
+      [height]="size().height"
+      alt="Svelte"
+    />
+    } @case ('Astro') {
+    <img
+      src="/languages/astro.svg"
+      [width]="size().width"
+      [height]="size().height"
+      alt="Astro"
+    />
+    } @case ('Blade') {
+    <img
+      src="/languages/blade.svg"
+      [width]="size().width"
+      [height]="size().height"
+      alt="Blade"
+    />
     } @default {
     <div class="generic-language">{{ language() }}</div>
     } }
