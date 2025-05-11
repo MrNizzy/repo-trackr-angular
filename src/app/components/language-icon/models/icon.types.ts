@@ -1,0 +1,43 @@
+const BASE_URL = '/languages/';
+
+/**
+ * Mapeo de nombres de lenguajes normalizados a rutas de iconos SVG
+ */
+export const LANGUAGE_ICONS: Record<string, string> = {
+  TypeScript: `${BASE_URL}typescript.svg`,
+  JavaScript: `${BASE_URL}javascript.svg`,
+  HTML: `${BASE_URL}html5.svg`,
+  CSS: `${BASE_URL}css.svg`,
+  Python: `${BASE_URL}python.svg`,
+  Java: `${BASE_URL}java.svg`,
+  PHP: `${BASE_URL}php.svg`,
+  C: `${BASE_URL}c.svg`,
+  'C#': `${BASE_URL}csharp.svg`,
+  'C++': `${BASE_URL}c-plusplus.svg`,
+  Dart: `${BASE_URL}dart.svg`,
+  Sass: `${BASE_URL}sass.svg`,
+  Markdown: `${BASE_URL}markdown-light.svg`,
+  Bash: `${BASE_URL}bash.svg`,
+  Go: `${BASE_URL}golang.svg`,
+  Ruby: `${BASE_URL}ruby.svg`,
+  Cobol: `${BASE_URL}cobol.svg`,
+  Fortran: `${BASE_URL}fortran.svg`,
+  Gleam: `${BASE_URL}gleam.svg`,
+  GraphQL: `${BASE_URL}graphql.svg`,
+  Haskell: `${BASE_URL}haskell.svg`,
+  JSON: `${BASE_URL}json.svg`,
+  Julia: `${BASE_URL}julia.svg`,
+  Kotlin: `${BASE_URL}kotlin.svg`,
+  Lua: `${BASE_URL}lua.svg`,
+  MATLAB: `${BASE_URL}matlab.svg`,
+  R: `${BASE_URL}r.svg`,
+  Racket: `${BASE_URL}racket.svg`,
+  Rust: `${BASE_URL}rust.svg`,
+  Scala: `${BASE_URL}scala.svg`,
+  Solidity: `${BASE_URL}solidity.svg`,
+  Swift: `${BASE_URL}swift.svg`,
+  Zig: `${BASE_URL}zig.svg`,
+  Svelte: `${BASE_URL}svelte.svg`,
+  Astro: `${BASE_URL}astro.svg`,
+  Blade: `${BASE_URL}blade.svg`,
+};
