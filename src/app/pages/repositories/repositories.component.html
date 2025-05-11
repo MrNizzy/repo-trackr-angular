@@ -61,11 +61,13 @@
     <mat-card class="repository-card" scrollFadeIn>
       <mat-card-header>
         <mat-card-title>
-          <a [href]="repo.url" target="_blank" rel="noopener noreferrer">{{
-            repo.name
-          }}</a>
+          {{ repo.name }}
         </mat-card-title>
-        <mat-card-subtitle>{{ repo.full_name }}</mat-card-subtitle>
+        <mat-card-subtitle>
+          <a [href]="repo.url" target="_blank" rel="noopener noreferrer">
+            {{ repo.full_name }}
+          </a>
+        </mat-card-subtitle>
       </mat-card-header>
 
       <mat-card-content>
@@ -99,12 +101,12 @@
 
         <div class="repo-dates">
           <p>
-            <strong>Creado:</strong>
+            <strong>Creado</strong>
             {{ repo.created_at | date : "MMM dd, yyyy" }}
           </p>
 
           <p>
-            <strong>Última actualización:</strong>
+            <strong>Última actualización</strong>
             {{ repo.updated_at | date : "MMM dd, yyyy" }}
           </p>
         </div>
@@ -113,7 +115,6 @@
       <mat-card-actions>
         <a
           mat-button
-          color="primary"
           [href]="repo.url"
           target="_blank"
           rel="noopener noreferrer"
@@ -149,7 +150,8 @@
         rel="noopener noreferrer"
         >MrNizzy</a
       >
+      con ❤️ amor y café ☕
     </p>
-    <p>Con amor y café ☕</p>
+    <p></p>
   </div>
 </div>
