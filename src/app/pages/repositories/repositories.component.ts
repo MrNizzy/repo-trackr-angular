@@ -10,7 +10,7 @@ import { repositories, RepositoriesResponse } from './repositories.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { RepositoriesService } from './repositories.service';
 import { Router } from '@angular/router';
-import { CommonModule, DatePipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -25,9 +25,8 @@ import {
   MatFormFieldModule,
 } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
-import { PaginatorComponent } from '../../components/paginator/paginator.component';
-import { LanguageIconComponent } from '../../components/language-icon/language-icon.component';
-import { ScrollFadeInDirective } from '../../directives/scroll-fade-in.directive';
+import { PaginatorComponent } from '@components/paginator/paginator.component';
+import { RepositoryCardComponent } from '@components/repository-card/repository-card.component';
 
 @Component({
   selector: 'app-repositories',
@@ -44,10 +43,8 @@ import { ScrollFadeInDirective } from '../../directives/scroll-fade-in.directive
     MatSelectModule,
     MatFormFieldModule,
     FormsModule,
-    DatePipe,
     PaginatorComponent,
-    LanguageIconComponent,
-    ScrollFadeInDirective,
+    RepositoryCardComponent,
   ],
   templateUrl: './repositories.component.html',
   styleUrl: './repositories.component.scss',

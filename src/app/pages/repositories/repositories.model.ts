@@ -3,7 +3,7 @@ export interface RepositoriesResponse {
   repositories: Repository[];
 }
 
-interface Repository {
+export interface Repository {
   name: string;
   full_name: string;
   description: null | string;

@@ -58,72 +58,7 @@
   } @if (!isLoading() && repositories().repositories.length) {
   <div class="repositories-container">
     @for (repo of repositories().repositories; track $index) {
-    <mat-card class="repository-card" scrollFadeIn>
-      <mat-card-header>
-        <mat-card-title>
-          {{ repo.name }}
-        </mat-card-title>
-        <mat-card-subtitle>
-          <a [href]="repo.url" target="_blank" rel="noopener noreferrer">
-            {{ repo.full_name }}
-          </a>
-        </mat-card-subtitle>
-      </mat-card-header>
-
-      <mat-card-content>
-        @if (repo.description) {
-        <p>{{ repo.description }}</p>
-        } @else {
-        <p class="no-description">Sin descripción</p>
-        }
-
-        <div class="repo-stats">
-          <div class="stat" matTooltip="Estrellas">
-            <mat-icon>star</mat-icon>
-            <span>{{ repo.stars }}</span>
-          </div>
-          <div class="stat" matTooltip="Bifurcaciones">
-            <mat-icon>fork_right</mat-icon>
-            <span>{{ repo.forks }}</span>
-          </div>
-          @if (repo.language) {
-          <div class="stat" matTooltip="Lenguaje principal">
-            <app-language-icon
-              [language]="repo.language"
-              [size]="{ width: 20, height: 20 }"
-            ></app-language-icon>
-            <span>{{ repo.language }}</span>
-          </div>
-          }
-        </div>
-
-        <mat-divider></mat-divider>
-
-        <div class="repo-dates">
-          <p>
-            <strong>Creado</strong>
-            {{ repo.created_at | date : "MMM dd, yyyy" }}
-          </p>
-
-          <p>
-            <strong>Última actualización</strong>
-            {{ repo.updated_at | date : "MMM dd, yyyy" }}
-          </p>
-        </div>
-      </mat-card-content>
-
-      <mat-card-actions>
-        <a
-          mat-button
-          [href]="repo.url"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <mat-icon>open_in_new</mat-icon>
-          VER REPOSITORIO
-        </a>
-      </mat-card-actions>
-    </mat-card>
+    <app-repository-card [repository]="repo" />
     }
   </div>
 
