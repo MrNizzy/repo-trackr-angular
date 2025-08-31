@@ -1,6 +1,6 @@
 import { Component, HostListener, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { CommonModule } from '@angular/common';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -10,11 +10,10 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   standalone: true,
   imports: [
     RouterOutlet,
-    CommonModule,
     MatButtonModule,
     MatIconModule,
-    MatTooltipModule,
-  ],
+    MatTooltipModule
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })

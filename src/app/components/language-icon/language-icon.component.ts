@@ -4,7 +4,7 @@ import {
   computed,
   input,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { LANGUAGE_MAPPINGS } from './models/language.types';
 import { LANGUAGE_ICONS } from './models/icon.types';
 
@@ -17,7 +17,7 @@ import { LANGUAGE_ICONS } from './models/icon.types';
 @Component({
   selector: 'app-language-icon',
   standalone: true,
-  imports: [CommonModule],
+  imports: [],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     @if (normalizedLanguage()) { @let lang = normalizedLanguage()!; @if

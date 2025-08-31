@@ -10,7 +10,7 @@ import { repositories, RepositoriesResponse } from './repositories.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { RepositoriesService } from './repositories.service';
 import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
+
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -31,7 +31,6 @@ import { RepositoryCardComponent } from '@components/repository-card/repository-
 @Component({
   selector: 'app-repositories',
   imports: [
-    CommonModule,
     MatCardModule,
     MatIconModule,
     MatButtonModule,
@@ -44,8 +43,8 @@ import { RepositoryCardComponent } from '@components/repository-card/repository-
     MatFormFieldModule,
     FormsModule,
     PaginatorComponent,
-    RepositoryCardComponent,
-  ],
+    RepositoryCardComponent
+],
   templateUrl: './repositories.component.html',
   styleUrl: './repositories.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,

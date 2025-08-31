@@ -4,13 +4,13 @@ import {
   input,
   output,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-paginator',
-  imports: [CommonModule, MatButtonModule, MatIconModule],
+  imports: [MatButtonModule, MatIconModule],
   templateUrl: './paginator.component.html',
   styleUrl: './paginator.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
