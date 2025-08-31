@@ -6,12 +6,12 @@
     </button>
   </div>
 
-  @if (repositories().username) {
-  <h1>Repositorios de {{ repositories().username }}</h1>
+  @if (username()) {
+  <h1>Repositorios de {{ username() }}</h1>
   }
 
   <!-- Parámetros de consulta -->
-  @if (!isLoading() && repositories().repositories.length) {
+  @if (!isLoading() && repositories().length >0) {
   <div class="query-controls">
     <div class="filters-row">
       <mat-form-field appearance="outline">
@@ -55,21 +55,21 @@
     <mat-spinner diameter="50"></mat-spinner>
     <p>Cargando repositorios...</p>
   </div>
-  } @if (!isLoading() && repositories().repositories.length) {
+  } @if (!isLoading() && repositories().length > 0) {
   <div class="repositories-container">
-    @for (repo of repositories().repositories; track $index) {
+    @for (repo of repositories(); track $index) {
     <app-repository-card [repository]="repo" />
     }
   </div>
 
-  @if (!isLoading() && repositories().repositories.length) {
+  @if (!isLoading() && repositories().length > 0) {
   <app-paginator
     [currentPage]="queryParams().page"
     [hasNextPage]="hasNextPage()"
     (pageChange)="handlePageChange($event)"
   >
   </app-paginator>
-  } } @if (!isLoading() && !repositories().repositories.length) {
+  } } @if (!isLoading() && !repositories().length) {
   <div class="no-repos">
     <mat-icon>sentiment_dissatisfied</mat-icon>
     <p>No se encontraron repositorios para este usuario.</p>

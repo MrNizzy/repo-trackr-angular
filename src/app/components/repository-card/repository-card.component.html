@@ -20,11 +20,11 @@
     <div class="repo-stats">
       <div class="stat" matTooltip="Estrellas">
         <mat-icon>star</mat-icon>
-        <span>{{ repository().stars }}</span>
+        <span>{{ repository().stargazers_count }}</span>
       </div>
       <div class="stat" matTooltip="Bifurcaciones">
         <mat-icon>fork_right</mat-icon>
-        <span>{{ repository().forks }}</span>
+        <span>{{ repository().forks_count }}</span>
       </div>
       @if (repository().language) {
       <div class="stat" matTooltip="Lenguaje principal">

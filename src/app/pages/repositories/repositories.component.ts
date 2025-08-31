@@ -6,7 +6,7 @@ import {
   OnInit,
   signal,
 } from '@angular/core';
-import { repositories, RepositoriesResponse } from './repositories.model';
+import { Repository } from './repositories.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { RepositoriesService } from './repositories.service';
 import { Router } from '@angular/router';
@@ -43,8 +43,8 @@ import { RepositoryCardComponent } from '@components/repository-card/repository-
     MatFormFieldModule,
     FormsModule,
     PaginatorComponent,
-    RepositoryCardComponent
-],
+    RepositoryCardComponent,
+  ],
   templateUrl: './repositories.component.html',
   styleUrl: './repositories.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -69,7 +69,7 @@ export class RepositoriesComponent implements OnInit {
   private _snackbar = inject(MatSnackBar);
 
   // Variables de estado
-  public repositories = signal<RepositoriesResponse>(repositories);
+  public repositories = signal<Repository[]>([]);
   public queryParams = signal({
     page: 1,
     per_page: 10,
@@ -149,7 +149,7 @@ export class RepositoriesComponent implements OnInit {
           // un total de elementos y no podemos calcularlo a partir de la
           //  respuesta.
           this.hasNextPage.set(
-            response.repositories.length >= this.queryParams().per_page
+            response.length >= this.queryParams().per_page
           );
           this.isLoading.set(false);
         },
