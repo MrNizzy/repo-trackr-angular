@@ -4,7 +4,11 @@
       {{ repository().name }}
     </mat-card-title>
     <mat-card-subtitle>
-      <a [href]="repository().url" target="_blank" rel="noopener noreferrer">
+      <a
+        [href]="repository().html_url"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         {{ repository().full_name }}
       </a>
     </mat-card-subtitle>
@@ -55,7 +59,7 @@
   <mat-card-actions>
     <a
       mat-button
-      [href]="repository().url"
+      [href]="repository().html_url"
       target="_blank"
       rel="noopener noreferrer"
     >
